@@ -54,6 +54,90 @@
 
             </div>
             <!-- End of Main Content -->
+            
+            <!-- Begin Page Content -->
+            <div class="container-fluid">
+
+                <!-- DataTales Example -->
+                <div class="card shadow mb-4">
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                <thead>
+                                    <tr>
+                                        <th>No</th>
+                                        <th>Nama Instansi</th>
+                                        <th>Alamat</th>
+                                        <th>Jumlah Ambulance</th>
+                                        <th>Jumlah Nakes</th>
+                                        <th>No.Telp</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>Balai Desa Sukorejo</td>
+                                        <td>Sukorejo</td>
+                                        <td>01</td>
+                                        <td>00</td>
+                                        <td>250-9773985</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>Balai Desa Ringintelu</td>
+                                        <td>Ringintelu</td>
+                                        <td>01</td>
+                                        <td>00</td>
+                                        <td>108-9653072</td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td>Puskesmas Bangorejo</td>
+                                        <td>Bangorejo</td>
+                                        <td>02</td>
+                                        <td>31</td>
+                                        <td>756-0008800</td>
+                                    </tr>
+                                    <tr>
+                                        <td>4</td>
+                                        <td>Balai Desa Bangorejo</td>
+                                        <td>Bangorejo</td>
+                                        <td>02</td>
+                                        <td>00</td>
+                                        <td>101-9318919</td>
+                                    </tr>
+                                    <tr>
+                                        <td>5</td>
+                                        <td>Balai Desa Pasembon</td>
+                                        <td>Pasembon</td>
+                                        <td>01</td>
+                                        <td>00</td>
+                                        <td>987-5272439</td>
+                                    </tr>
+                                    <tr>
+                                        <td>6</td>
+                                        <td>Puskesmas Kedungrejo</td>
+                                        <td>Kedungrejo</td>
+                                        <td>04</td>
+                                        <td>25</td>
+                                        <td>900-0881922</td>
+                                    </tr>
+                                    <tr>
+                                        <td>7</td>
+                                        <td>Balai Desa Kedungrejo</td>
+                                        <td>Kedungrejo</td>
+                                        <td>01</td>
+                                        <td>00</td>
+                                        <td>324-4035045</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <!-- /.container-fluid -->
 
             @include('admin.body.footer')
 

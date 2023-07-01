@@ -22,11 +22,11 @@
 <!-- Divider -->
 <hr class="sidebar-divider">
 
-<!-- Nav Item - Pusat Kesehatan Collapse Menu -->
-<li class="{{'pusat/view' == request()->path() ? 'nav-item active' : 'nav-item'}}">
-    <a class="nav-link collapsed" href="{{route('pusat.view')}}">
-        <i class="fa fa-building"></i>
-        <span>Pusat Kesehatan</span></a>
+<!-- Nav Item - Ambulance Collapse Menu -->
+<li class="{{'ambulance/view' == request()->path() ? 'nav-item active' : 'nav-item'}}">
+    <a class="nav-link collapsed" href="{{route('ambulance.view')}}">
+        <i class="fa fa-ambulance"></i>
+        <span>Pertolongan Ambulance</span></a>
 </li>
 
 <!-- Nav Item - Pertolongan Nakes Collapse Menu -->
@@ -36,11 +36,11 @@
         <span>Pertolongan Nakes</span></a>
 </li>
 
-<!-- Nav Item - Ambulance Collapse Menu -->
-<li class="{{'ambulance/view' == request()->path() ? 'nav-item active' : 'nav-item'}}">
-    <a class="nav-link collapsed" href="{{route('ambulance.view')}}">
-        <i class="fa fa-ambulance"></i>
-        <span>Pertolongan Ambulance</span></a>
+<!-- Nav Item - Pusat Kesehatan Collapse Menu -->
+<li class="{{'pusat/view' == request()->path() ? 'nav-item active' : 'nav-item'}}">
+    <a class="nav-link collapsed" href="{{route('pusat.view')}}">
+        <i class="fa fa-building"></i>
+        <span>Pusat Kesehatan</span></a>
 </li>
 
 <!-- Nav Item - Data Pasien Collapse Menu -->
