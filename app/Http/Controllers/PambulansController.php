@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Pambulan;
+use Illuminate\Support\Facades\Auth;
 
 class PambulansController extends Controller
 {
@@ -29,12 +30,12 @@ class PambulansController extends Controller
     public function store(Request $request)
     {
         $pambulan = new Pambulan;
-        $pambulan->nama = $request->namapasien;
+        $pambulan->nama = Auth::user()->name;
         $pambulan->kep = $request->kep;
         $pambulan->lokasi = $request->lokasi;
         $pambulan->tanggal = now();
         $pambulan->save();
-        return redirect('redirects')->with('success', 'Pertolongan akan segera datang');
+        return redirect('redirects');
     }
 
     /**

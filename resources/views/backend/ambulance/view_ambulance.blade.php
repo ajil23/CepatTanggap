@@ -82,7 +82,8 @@
                                         <td>{{$item->kep}}</td>
                                         <td>{{$item->lokasi}}</td>
                                         <td>{{$item->tanggal}}</td>
-                                        <th>lihat</th>
+                                        <td>lihat</td>
+                                        <td></td>
                                     </tr>
                                     @endforeach
                                 </tbody>

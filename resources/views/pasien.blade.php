@@ -66,79 +66,81 @@
     </style>
     <title>Pasien</title>
 </head>
-<div class="picture-container">
-    <img class="picture" src="{{asset('backend/img/logo-2.png')}}" alt="CepatTanggap Logo">
+<div class="card">
+    <div class="card-body">
+        <div class="picture-container">
+            <img class="picture" src="{{asset('backend/img/logo-2.png')}}" alt="CepatTanggap Logo">
+        </div>
+        
+        <!-- Button trigger modal -->
+        <button type="button" class="button button--primary button--block" data-bs-toggle="modal" data-bs-target="#exampleModal">
+           Panggil Ambulans
+          </button>
+          
+          <!-- Modal -->
+          <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h1 class="modal-title fs-5" id="exampleModalLabel">Panggil Ambulans</h1>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form method="POST" action="{{route('pambulan.store')}}" enctype="multipart/form-data">
+                    @csrf
+                    <div class="modal-body">
+                        <div class="form-group row">
+                            <div class="input-group mb-3">
+                                <select name="kep" id="select" class="form-control form-control" name="kep">
+                                    <option value="">-- Keadaan Darurat --</option>
+                                    <option value="Cidera Fisik">Cidera Fisik</option>
+                                    <option value="Gangguan Pernapasan">Gangguan Pernapasan</option>
+                                    <option value="Kebakaran">Kebakaran</option>
+                                    <option value="Kejang">Kejang-kejang</option>
+                                    <option value="Keracunan">Keracunan</option>
+                                    <option value="Nyeri Dada">Nyeri Dada</option>
+                                    <option value="Persalinan">Persalinan</option>
+                                    <option value="Pingsan Mendadak">Pingsan Mendadak</option>
+                                    <option value="Stroke">Stroke</option>
+                                    <option value="Serangan Jantung">Serangan Jantung</option>
+                                    <option value="Serangan Hewan">Serangan Hewan</option>
+                                </select>
+                            </div>
+                            <div class="input-group mb-3">
+                                <input type="hidden" class="form-control" id="lokasi" name="lokasi">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                        <button type="submit" class="btn btn-success">Kirim</button>
+                    </div>
+                </form>
+              </div>
+            </div>
+          </div>
+    
+        <a href="#" >
+            <button type="button" class="button button--primary button--block" onclick="reqnakes()">
+                Panggil Nakes
+            </button>
+        </a>
+        <a href="{{ route('profile.show') }}">
+            <button type="button" class="button button--primary button--block">
+                Pengaturan Profil
+            </button>
+        </a>
+        <a href="logout">
+            <button type="button" class="button button--secondary button--block">
+                Logout
+            </button>
+        </a>
+        <p class="footer__copy">&#169; Aone. All rigths reserved</p>
+    </div>
 </div>
 
-<!-- Button trigger modal -->
-<button type="button" class="button button--primary button--block" data-bs-toggle="modal" data-bs-target="#exampleModal">
-   Panggil Ambulans
-  </button>
-  
-  <!-- Modal -->
-  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h1 class="modal-title fs-5" id="exampleModalLabel">Panggil Ambulans</h1>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <form method="POST" action="{{route('pambulan.store')}}" enctype="multipart/form-data">
-            @csrf
-            <div class="modal-body">
-                <div class="form-group row">
-                    <div class="input-group mb-3">
-                        <select name="namapasien" id="select" class="form-control form-control" name="namapasien">
-                            <option value="">Nama Lengkap</option>
-                            <option value="Laki">Laki-laki</option>
-                            <option value="Perempuan">Perempuan</option>
-                        </select>
-                    </div>
-                    <div class="input-group mb-3">
-                        <select name="kep" id="select" class="form-control form-control" name="kep">
-                            <option value="">Keperluan</option>
-                            <option value="Serangan Jantung">Serangan Jantung</option>
-                            <option value="Bersalin">Bersalin</option>
-                        </select>
-                    </div>
-                    <div class="input-group mb-3">
-                        <input type="text" class="form-control" id="lokasi" name="lokasi">
-                    </div>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-                <button type="submit" class="btn btn-success">Kirim</button>
-            </div>
-        </form>
-      </div>
-    </div>
-  </div>
-
-    {{-- <button type="button" class="btn btn--primary btn--block" id="ambu">
-        Panggil Ambulans
-    </button> --}}
-
-<a href="#" >
-    <button type="button" class="button button--primary button--block" onclick="reqnakes()">
-        Panggil Nakes
-    </button>
-</a>
-<a href="{{ route('profile.show') }}">
-    <button type="button" class="button button--primary button--block">
-        Pengaturan Profil
-    </button>
-</a>
-<a href="logout">
-    <button type="button" class="button button--secondary button--block">
-        Logout
-    </button>
-</a>
-<p class="footer__copy">&#169; Aone. All rigths reserved</p>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 {{-- new --}}
 
-<input type="hidden" id="lokasi">
 <script>
     var lokasi = document.getElementById('lokasi');
     if(navigator.geolocation) {
@@ -152,24 +154,6 @@
     function errorCallback(position){
 
     }
-
-    // var ambulans = document.getElementById("ambu").addEventListener("click", reqambulans);
-    // function reqambulans(){
-    //     var loc = document.getElementById('lokasi');
-    // }
-    // $.ajax({
-    //     type: 'POST',
-    //     url '/pasien/ambustore',
-    //     data: {
-    //         _token: "{{csrf_token()}}",
-    //         lokasi: lokasi
-    //     },
-    //     cache: false,
-    //     success: function(respond){
-
-    //     }
-    // })
-
     function reqnakes(){
         alert("Test nakes ");
     }
