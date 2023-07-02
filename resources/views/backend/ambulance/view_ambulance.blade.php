@@ -67,7 +67,6 @@
                                     <tr>
                                         <th>No</th>
                                         <th>Nama Pasien</th>
-                                        <th>Asal Ambulance</th>
                                         <th>Keperluan</th>
                                         <th>Lokasi</th>
                                         <th>Tanggal</th>
@@ -76,76 +75,16 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @foreach ($pambulan as $item)
                                     <tr>
-                                        <td>1</td>
-                                        <td>Indah Burhanuddin</td>
-                                        <td>Balai Desa Sukorejo</td>
-                                        <td>Persalinan</td>
-                                        <td>Sukorejo</td>
-                                        <td>1 Juli 2023</td>
+                                        <td>{{$loop->iteration}}</td>
+                                        <td>{{$item->nama}}</td>
+                                        <td>{{$item->kep}}</td>
+                                        <td>{{$item->lokasi}}</td>
+                                        <td>{{$item->tanggal}}</td>
                                         <th>lihat</th>
-                                        <th></th>
                                     </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td>Usman Kusuma</td>
-                                        <td>Puskesmas Pedotan</td>
-                                        <td>Stroke</td>
-                                        <td>Ringintelu</td>
-                                        <td>1 Juli 2023</td>
-                                        <th>lihat</th>
-                                        <th></th>
-                                    </tr>
-                                    <tr>
-                                        <td>3</td>
-                                        <td>Kasih Eka</td>
-                                        <td>Puskesmas Kedungrejo</td>
-                                        <td>Kecelakaan</td>
-                                        <td>Kedungrejo</td>
-                                        <td>1 Juli 2023</td>
-                                        <th>lihat</th>
-                                        <th></th>
-                                    </tr>
-                                    <tr>
-                                        <td>4</td>
-                                        <td>Slamet Ali</td>
-                                        <td>Puskesmas Bangorejo</td>
-                                        <td>Usus Buntu</td>
-                                        <td>Bangorejo</td>
-                                        <td>1 Juli 2023</td>
-                                        <th>lihat</th>
-                                        <th></th>
-                                    </tr>
-                                    <tr>
-                                        <td>5</td>
-                                        <td>Hasan Firdaus</td>
-                                        <td>Balai Desa Pasembon</td>
-                                        <td>Sesak</td>
-                                        <td>Pasembon</td>
-                                        <td>1 Juli 2023</td>
-                                        <th>lihat</th>
-                                        <th></th>
-                                    </tr>
-                                    <tr>
-                                        <td>6</td>
-                                        <td>Mawar Wangi</td>
-                                        <td>Balai Desa Sukorejo</td>
-                                        <td>Gerd</td>
-                                        <td>Sukorejo</td>
-                                        <td>1 Juli 2023</td>
-                                        <th>lihat</th>
-                                        <th></th>
-                                    </tr>
-                                    <tr>
-                                        <td>7</td>
-                                        <td>Yuliana Mega</td>
-                                        <td>Balai Desa Sukorejo</td>
-                                        <td>Gigit Ular</td>
-                                        <td>Sukorejo</td>
-                                        <td>1 Juli 2023</td>
-                                        <th>lihat</th>
-                                        <th></th>
-                                    </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>

@@ -83,35 +83,34 @@
           <h1 class="modal-title fs-5" id="exampleModalLabel">Panggil Ambulans</h1>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <div class="modal-body">
-          <form class="user" method="POST" action="pesanAmbulans" enctype="multipart/form-data">
+        <form method="POST" action="{{route('pambulan.store')}}" enctype="multipart/form-data">
             @csrf
-            <div class="form-group row">
-                <div class="input-group mb-3">
-                    <select name="select" id="select" class="form-control form-control" name="namapasien">
-                        <option value="">Nama Lengkap</option>
-                        <option value="Laki">Laki-laki</option>
-                        <option value="Perempuan">Perempuan</option>
-                    </select>
-                </div>
-                <div class="input-group mb-3">
-                    <select name="select" id="select" class="form-control form-control" name="keperluan">
-                        <option value="">Keperluan</option>
-                        <option value="Serangan Jantung">Serangan Jantung</option>
-                        <option value="Bersalin">Bersalin</option>
-                    </select>
-                </div>
-                <div class="input-group mb-3">
-                    <input type="text" class="form-control" id="lokasi">
+            <div class="modal-body">
+                <div class="form-group row">
+                    <div class="input-group mb-3">
+                        <select name="namapasien" id="select" class="form-control form-control" name="namapasien">
+                            <option value="">Nama Lengkap</option>
+                            <option value="Laki">Laki-laki</option>
+                            <option value="Perempuan">Perempuan</option>
+                        </select>
+                    </div>
+                    <div class="input-group mb-3">
+                        <select name="kep" id="select" class="form-control form-control" name="kep">
+                            <option value="">Keperluan</option>
+                            <option value="Serangan Jantung">Serangan Jantung</option>
+                            <option value="Bersalin">Bersalin</option>
+                        </select>
+                    </div>
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" id="lokasi" name="lokasi">
+                    </div>
                 </div>
             </div>
-            
-          </form>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-          <button type="button" class="btn btn-success">Kirim</button>
-        </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                <button type="submit" class="btn btn-success">Kirim</button>
+            </div>
+        </form>
       </div>
     </div>
   </div>
@@ -139,7 +138,7 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 {{-- new --}}
 
-<input type="text" id="lokasi">
+<input type="hidden" id="lokasi">
 <script>
     var lokasi = document.getElementById('lokasi');
     if(navigator.geolocation) {
