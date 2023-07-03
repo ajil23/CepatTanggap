@@ -46,9 +46,38 @@
                     </div>
 
                     <!-- Content Row -->
-                    <div class="row">
-
-                    </div>
+                        <div class="card shadow mb-4">
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                        <thead>
+                                            <tr>
+                                                <th>No</th>
+                                                <th>Nama Pasien</th>
+                                                <th>Keperluan</th>
+                                                <th>Lokasi</th>
+                                                <th>Tanggal</th>
+                                                <th>Lihat Peta</th>
+                                                <th>Status</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach ($pambulan as $item)
+                                            <tr>
+                                                <td>{{$loop->iteration}}</td>
+                                                <td>{{$item->nama}}</td>
+                                                <td>{{$item->kep}}</td>
+                                                <td>{{$item->lokasi}}</td>
+                                                <td>{{$item->tanggal}}</td>
+                                                <td>lihat</td>
+                                                <td></td>
+                                            </tr>
+                                            @endforeach
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
 
                 </div>
 
@@ -59,38 +88,7 @@
             <div class="container-fluid">
 
                 <!-- DataTales Example -->
-                <div class="card shadow mb-4">
-                    <div class="card-body">
-                        <div class="table-responsive">
-                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                <thead>
-                                    <tr>
-                                        <th>No</th>
-                                        <th>Nama Pasien</th>
-                                        <th>Keperluan</th>
-                                        <th>Lokasi</th>
-                                        <th>Tanggal</th>
-                                        <th>Lihat Peta</th>
-                                        <th>Status</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach ($pambulan as $item)
-                                    <tr>
-                                        <td>{{$loop->iteration}}</td>
-                                        <td>{{$item->nama}}</td>
-                                        <td>{{$item->kep}}</td>
-                                        <td>{{$item->lokasi}}</td>
-                                        <td>{{$item->tanggal}}</td>
-                                        <td>lihat</td>
-                                        <td></td>
-                                    </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
+
 
             </div>
             <!-- /.container-fluid -->
