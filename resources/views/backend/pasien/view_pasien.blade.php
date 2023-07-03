@@ -46,20 +46,6 @@
                     </div>
 
                     <!-- Content Row -->
-                    <div class="row">
-
-                    </div>
-
-                </div>
-
-            </div>
-            <!-- End of Main Content -->
-
-            
-            <!-- Begin Page Content -->
-            <div class="container-fluid">
-
-                <!-- DataTales Example -->
                 <div class="card shadow mb-4">
                     <div class="card-body">
                         <div class="table-responsive">
@@ -85,65 +71,22 @@
                                         <td>Diabetes</td>
                                         <td>Sambirejo</td>
                                     </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td>Sri Agus</td>
-                                        <td>Jember</td>
-                                        <td>23-12-1999</td>
-                                        <td>24</td>
-                                        <td>Syndrom Turner</td>
-                                        <td>Bangorejo</td>
-                                    </tr>
-                                    <tr>
-                                        <td>3</td>
-                                        <td>Asih Tri</td>
-                                        <td>Banyuwangi</td>
-                                        <td>01-04-1992</td>
-                                        <td>31</td>
-                                        <td>Tuberkulosis</td>
-                                        <td>Sukorejo</td>
-                                    </tr>
-                                    <tr>
-                                        <td>4</td>
-                                        <td>Batari Wangi</td>
-                                        <td>Banyuwangi</td>
-                                        <td>23-02-2000</td>
-                                        <td>23</td>
-                                        <td>Gagal Ginjal</td>
-                                        <td>Ringintelu</td>
-                                    </tr>
-                                    <tr>
-                                        <td>5</td>
-                                        <td>Harun Hadijah</td>
-                                        <td>Banyuwangi</td>
-                                        <td>09-05-1980</td>
-                                        <td>43</td>
-                                        <td>Jantung</td>
-                                        <td>Pedotan</td>
-                                    </tr>
-                                    <tr>
-                                        <td>6</td>
-                                        <td>Maimunah Ismail</td>
-                                        <td>Banyuwangi</td>
-                                        <td>16-11-1990</td>
-                                        <td>33</td>
-                                        <td>Kencing Manis</td>
-                                        <td>Sambirejo</td>
-                                    </tr>
-                                    <tr>
-                                        <td>7</td>
-                                        <td>Putra Hadi</td>
-                                        <td>Banyuwangi</td>
-                                        <td>25-05-1995</td>
-                                        <td>28</td>
-                                        <td>Paru-Paru</td>
-                                        <td>Sukorejo</td>
-                                    </tr>
                                 </tbody>
                             </table>
                         </div>
                     </div>
                 </div>
+
+                </div>
+
+            </div>
+            <!-- End of Main Content -->
+
+            
+            <!-- Begin Page Content -->
+            <div class="container-fluid">
+
+                <!-- DataTales Example -->
 
             </div>
             <!-- /.container-fluid -->
