@@ -9,7 +9,7 @@
   <title>CepatTanggap</title>
   <style>
     body {
-      background: url({{ asset('backend/img/bg.png') }}) no-repeat;
+      background: url({{ asset('backend/img/bg-4.jpg') }}) no-repeat;
       background-size: cover;
       display: grid;
       align-items: center;
@@ -50,13 +50,13 @@
       cursor: pointer;
     }
 
-    .button--primary {
-      background: #5765df;
+    .button--success {
+      background: #4ADA93;
       color: white;
     }
 
-    .button--primary:hover {
-      background: #4756e0;
+    .button--success:hover {
+      background: #37AB72;
     }
 
     .button--secondary {
@@ -75,8 +75,8 @@
 
     .img-ambu{
       margin-left: -65px;
-      height: 30%;
-      width: 30%;
+      height: 26%;
+      width: 26%;
     }
 
     .img-nakes{
@@ -98,15 +98,15 @@
     <h1>CepatTanggap</h1>
 
     {{-- panggil nakes --}}
-    <button type="button" class="button button--primary button--block" >
-      <img class="img-nakes" src="{{ asset('backend/img/medical.png') }}" alt="">
+    <button type="button" class="button button--success button--block" >
+      <img class="img-nakes" src="{{ asset('backend/img/medical-2.png') }}" alt="">
       Panggil Nakes
     </button>
 
     {{-- panggil ambulans --}}
-    <button type="button" class="button button--primary button--block" data-bs-toggle="modal"
+    <button type="button" class="button button--success button--block" data-bs-toggle="modal"
     data-bs-target="#exampleModal">
-      <img class="img-ambu" src="{{ asset('backend/img/phone.png') }}" alt="">
+      <img class="img-ambu" src="{{ asset('backend/img/call-2.png') }}" alt="">
       Panggil Ambulans
     </button>
     {{-- modal-ambulans --}}
@@ -152,14 +152,15 @@
         </div>
 
     {{-- profile pengguna --}}
-    <button type="button" class="button button--primary button--block">
-      <img class="img-prof" src="{{ asset('backend/img/profile.png') }}" alt="">
+    <button type="button" class="button button--success button--block">
+      <img class="img-prof" src="{{ asset('backend/img/profile-2.png') }}" alt="">
       Profil 
     </button>
 
     {{-- logout --}}
     <a href="logout">
      <button type="button" class="button button--secondary button--block">
+     <img class="img-prof" src="{{ asset('backend/img/logout-2.png') }}" alt="">
         Logout 
     </button>
     </a>
