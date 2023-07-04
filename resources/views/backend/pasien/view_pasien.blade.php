@@ -46,14 +46,50 @@
                     </div>
 
                     <!-- Content Row -->
-                    <div class="row">
-
+                <div class="card shadow mb-4">
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                <thead>
+                                    <tr>
+                                        <th>No</th>
+                                        <th>Nama Lengkap</th>
+                                        <th>Tempat Lahir</th>
+                                        <th>Tanggal Lahir</th>
+                                        <th>Umur</th>
+                                        <th>Riwayat Penyakit</th>
+                                        <th>Alamat</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>Yohanes Faisal</td>
+                                        <td>Banyuwangi</td>
+                                        <td>12-09-1988</td>
+                                        <td>35</td>
+                                        <td>Diabetes</td>
+                                        <td>Sambirejo</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
+                </div>
 
                 </div>
 
             </div>
             <!-- End of Main Content -->
+
+            
+            <!-- Begin Page Content -->
+            <div class="container-fluid">
+
+                <!-- DataTales Example -->
+
+            </div>
+            <!-- /.container-fluid -->
 
             @include('admin.body.footer')
 

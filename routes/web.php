@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\PambulansController;
 use App\Http\Controllers\backend\AmbulanceController;
 use App\Http\Controllers\backend\NakesController;
 use App\Http\Controllers\backend\PasienController;
@@ -35,6 +36,8 @@ Route::middleware([
 Route::group(['middleware' => ['auth']], function() {
     Route::get('/logout', [AdminController::class, 'perform'])->name('logout.perform');
  });
+
+Route::resource("/pambulan", PambulansController::class);
 
 Route::middleware(['auth'])->group(function() {
     Route::get('/nakes/view',[NakesController::class, 'NakesView'])->name('nakes.view');

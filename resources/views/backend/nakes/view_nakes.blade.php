@@ -46,14 +46,55 @@
                     </div>
 
                     <!-- Content Row -->
-                    <div class="row">
-
+                <div class="card shadow mb-4">
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                <thead>
+                                    <tr>
+                                        <th>No</th>
+                                        <th>Nama Pasien</th>
+                                        <th>Nama Nakes</th>
+                                        <th>Keperluan</th>
+                                        <th>Lokasi</th>
+                                        <th>Tanggal</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>Lestari Alya</td>
+                                        <td>Maimunah Burhanuddin</td>
+                                        <td>Demam</td>
+                                        <td>Sukorejo</td>
+                                        <td>1 Juli 2023</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>Maimunah Lutfi</td>
+                                        <td>Sri Yasu</td>
+                                        <td>Jatuh Tangga</td>
+                                        <td>Ringintelu</td>
+                                        <td>1 Juli 2023</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
+                </div>
 
                 </div>
 
             </div>
             <!-- End of Main Content -->
+
+            <!-- Begin Page Content -->
+            <div class="container-fluid">
+
+                <!-- DataTales Example -->
+
+            </div>
+            <!-- /.container-fluid -->
 
             @include('admin.body.footer')
 
