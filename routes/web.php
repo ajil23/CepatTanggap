@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\PambulansController;
+use App\Http\Controllers\PanakesController;
 use App\Http\Controllers\backend\AmbulanceController;
 use App\Http\Controllers\backend\NakesController;
 use App\Http\Controllers\backend\PasienController;
@@ -38,6 +39,7 @@ Route::group(['middleware' => ['auth']], function() {
  });
 
 Route::resource("/pambulan", PambulansController::class);
+Route::resource("/panakes", PanakesController::class);
 
 Route::middleware(['auth'])->group(function() {
     Route::get('/nakes/view',[NakesController::class, 'NakesView'])->name('nakes.view');
