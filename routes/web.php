@@ -37,9 +37,9 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('/logout', [AdminController::class, 'perform'])->name('logout.perform');
  });
 
-Route::resource("/pambulan", PambulansController::class);
 
 Route::middleware(['auth'])->group(function() {
+    Route::resource("/pambulan", PambulansController::class);
     Route::get('/nakes/view',[NakesController::class, 'NakesView'])->name('nakes.view');
     Route::get('/ambulance/view',[AmbulanceController::class, 'AmbulanceView'])->name('ambulance.view');
     Route::get('/pusat/view',[PusatController::class, 'PusatView'])->name('pusat.view');
