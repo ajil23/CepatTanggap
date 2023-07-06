@@ -47,7 +47,7 @@
 <li class="{{'pasien/view' == request()->path() ? 'nav-item active' : 'nav-item'}}">
     <a class="nav-link collapsed" href="{{route('pasien.view')}}">
         <i class="fa fa-server"></i>
-        <span>Data Pasien</span></a>
+        <span>Data Pengguna</span></a>
 </li>
 
 <!-- Divider -->
