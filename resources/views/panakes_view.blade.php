@@ -94,58 +94,44 @@
 </head>
 
 <body>
-  <div class="card">
-    <h1>CepatTanggap</h1>
-
-    {{-- panggil nakes --}}
-    <a href="{{route('panakes.index')}}">
-      <button type="button" class="button button--success button--block">
-        <img class="img-nakes" src="{{ asset('backend/img/medical-2.png') }}" alt="">
-        Panggil Bantuan
-      </button>
-    </a>
-   
-    {{-- panggil ambulans --}}
-    <a href="{{route('pambulan.index')}}">
-      <button type="button" class="button button--success button--block">
-        <img class="img-ambu" src="{{ asset('backend/img/call-2.png') }}" alt="">
-        Panggil Ambulans
-      </button>
-    </a>
-
-    {{-- profile pengguna --}}
-    <button type="button" class="button button--success button--block">
-      <img class="img-prof" src="{{ asset('backend/img/profile-2.png') }}" alt="">
-      Profil 
-    </button>
-
-    {{-- logout --}}
-    <a href="logout">
-     <button type="button" class="button button--secondary button--block">
-     <img class="img-prof" src="{{ asset('backend/img/logout-2.png') }}" alt="">
-        Logout 
-    </button>
-    </a>
-  </div>
-
-  {{-- script --}}
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
-    crossorigin="anonymous"></script>
-    <script>
-        var lokasi = document.getElementById('lokasi');
-        if(navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
-        }
+<div class="card">
+  <h1>Minta Bantuan</h1>
+  <form method="POST" action="{{route('panakes.store')}}" enctype="multipart/form-data">
+    @csrf
+        <div class="form-group row">
+            <div class="input-group mb-3">
+                <select name="kep" id="select" class="form-control form-control" name="kep" required>
+                    <option value="">-- Jenis Bantuan --</option>
+                    <option value="Obat-obatan">Obat-obatan </option>
+                    <option value="Tabung Oksigen ">Tabung Oksigen</option>
+                </select>
+            </div>
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" id="lokasiku" name="lokasi">
+            </div>
+        </div>
+        <a href="redirects">
+          <button type="button" class="btn btn-secondary">Batal</button>
+        </a>
+        <button type="submit" class="btn btn-success" >Kirim</button>
+    </div>
+</form>
+</div>
     
-        function successCallback(position){
-            lokasi.value= position.coords.latitude + "," + position.coords.longitude;
-        }
-    
-        function errorCallback(position){
-    
-        }
-    </script>
+<script>
+  var lokasi = document.getElementById('lokasiku');
+  if(navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
+  }
+
+  function successCallback(position){
+      lokasi.value= position.coords.latitude + "," + position.coords.longitude;
+  }
+
+  function errorCallback(position){
+
+  }
+</script>
 </body>
 
 </html>

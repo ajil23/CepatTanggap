@@ -15,8 +15,8 @@
     <!--=============== REMIX ICONS ===============-->
     <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
 
-    <!--=============== CSS ===============-->
-    <style>
+        <!-- Styles -->
+       <style>
         /*=============== GOOGLE FONTS ===============*/
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
 
@@ -1140,12 +1140,10 @@
                 right: 3rem;
             }
         }
-    </style>
-    <title>CepatTanggap</title>
-</head>
-
-<body>
-    <!--==================== HEADER ====================-->
+       </style>
+    </head>
+    <body>
+      <!--==================== HEADER ====================-->
     <header class="header" id="header">
         <nav class="nav container">
             <a href="#home" class="nav__logo">
@@ -1180,7 +1178,6 @@
             </div>
         </nav>
     </header>
-
     <main class="main">
         <!--==================== HOME ====================-->
         <section class="home" id="home">
@@ -1211,7 +1208,7 @@
                     <div class="card__top">
                         <div class="profile">
                             <div class="profile__img">
-                                <img src="{{asset('backend/img/phone-call.png')}}" alt="">
+                                <img src="{{asset('backend/img/call-2.png')}}" alt="">
                             </div>
                             <br>
                             <div class="name__user">
@@ -1229,7 +1226,7 @@
                     <div class="card__top">
                         <div class="profile">
                             <div class="profile__img">
-                                <img src="{{asset('backend/img/medical-team.png')}}" alt="">
+                                <img src="{{asset('backend/img/medical-2.png')}}" alt="">
                             </div>
                             <br>
                             <div class="name__user">

@@ -3,17 +3,17 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Pambulan;
+use App\Models\Panakes;
 use Illuminate\Support\Facades\Auth;
 
-class PambulansController extends Controller
+class PanakesController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return view('pambulan_view');
+        return view('panakes_view');
     }
 
     /**
@@ -21,7 +21,7 @@ class PambulansController extends Controller
      */
     public function create()
     {
-        return view('pambulan.create');
+        //
     }
 
     /**
@@ -29,7 +29,7 @@ class PambulansController extends Controller
      */
     public function store(Request $request)
     {
-        $pambulan = new Pambulan;
+        $pambulan = new Panakes();
         $pambulan->nama = Auth::user()->name;
         $pambulan->kep = $request->kep;
         $pambulan->lokasi = $request->lokasi;

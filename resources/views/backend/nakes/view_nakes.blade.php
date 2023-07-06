@@ -54,29 +54,25 @@
                                     <tr>
                                         <th>No</th>
                                         <th>Nama Pasien</th>
-                                        <th>Nama Nakes</th>
                                         <th>Keperluan</th>
                                         <th>Lokasi</th>
                                         <th>Tanggal</th>
+                                        <th>Lihat Peta</th>
+                                        <th>Status</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>Lestari Alya</td>
-                                        <td>Maimunah Burhanuddin</td>
-                                        <td>Demam</td>
-                                        <td>Sukorejo</td>
-                                        <td>1 Juli 2023</td>
-                                    </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td>Maimunah Lutfi</td>
-                                        <td>Sri Yasu</td>
-                                        <td>Jatuh Tangga</td>
-                                        <td>Ringintelu</td>
-                                        <td>1 Juli 2023</td>
-                                    </tr>
+                                    @foreach ($panakes as $item)
+                                        <tr>
+                                            <td>{{$loop->iteration}}</td>
+                                            <td>{{$item->nama}}</td>
+                                            <td>{{$item->kep}}</td>
+                                            <td>{{$item->lokasi}}</td>
+                                            <td>{{$item->tanggal}}</td>
+                                            <td>lihat</td>
+                                            <td></td>
+                                            </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>
