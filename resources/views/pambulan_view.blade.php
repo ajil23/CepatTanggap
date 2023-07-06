@@ -121,6 +121,7 @@
             </div>
         </div>
     </div>
+    <br>
     <div>
         <a href="redirects">
             <button type="button" class="btn btn-secondary">Batal</button>
@@ -129,7 +130,8 @@
     </div>
 </form>
 </div>
-    
+
+{{-- location script --}}
 <script>
   var lokasi = document.getElementById('lokasi');
   if(navigator.geolocation) {
@@ -143,6 +145,8 @@
   function errorCallback(position){
 
   }
+
+ 
 </script>
 </body>
 
