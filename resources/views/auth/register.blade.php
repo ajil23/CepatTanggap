@@ -68,6 +68,10 @@
                 </div>
             </div>
         </div>
+        <div class="copyright text-center my-auto">
+            <span style="color:white;">&copy; Aone. All rigths reserved</span>
+        </div>
+        
 
     </div>
 
