@@ -33,7 +33,7 @@
 <li class="{{'nakes/view' == request()->path() ? 'nav-item active' : 'nav-item'}}">
     <a class="nav-link collapsed" href="{{route('nakes.view')}}">
         <i class="fa fa-user-md"></i>
-        <span>Pertolongan Nakes</span></a>
+        <span>Panggil Bantuan</span></a>
 </li>
 
 <!-- Nav Item - Pusat Kesehatan Collapse Menu -->
