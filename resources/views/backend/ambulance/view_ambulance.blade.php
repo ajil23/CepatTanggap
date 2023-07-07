@@ -57,7 +57,6 @@
                                                 <th>Keperluan</th>
                                                 <th>Lokasi</th>
                                                 <th>Tanggal</th>
-                                                <th>Lihat Peta</th>
                                                 <th>Status</th>
                                             </tr>
                                         </thead>
@@ -67,13 +66,11 @@
                                                 <td>{{$loop->iteration}}</td>
                                                 <td>{{$item->nama}}</td>
                                                 <td>{{$item->kep}}</td>
-                                                <td>{{$item->lokasi}}</td>
-                                                <td>{{$item->tanggal}}</td>
                                                 <td>
-                                                    <a href="https://www.google.com/maps/search/?api=1&query= + {{$item->lokasi}}" target="_blank" >
+                                                    <a href="https://www.google.com/maps/search/?api=1&query= + {{$item->lat}},{{$item->lng}}" target="_blank" >
                                                         <b>Lihat</b>
-                                                    </a>
                                                 </td>
+                                                <td>{{$item->tanggal}}</td>
                                                 <td></td>
                                             </tr>
                                             @endforeach

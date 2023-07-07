@@ -91,7 +91,7 @@
       width: 26%;
     }
 
-    #map { height: 150px; }
+    #map { height: 150px;}
   </style>
   {{-- leaflet --}}
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
@@ -123,7 +123,8 @@
                 </select>
             </div>
             <div class="input-group mb-3">
-                <input type="hidden" class="form-control" id="lokasi" name="lokasi">
+              <input type="text" class="form-control" id="lati" name="lat">
+              <input type="text" class="form-control" id="long" name="lng">
             </div>
         </div>
     </div>
@@ -142,13 +143,16 @@
 
 {{-- location script --}}
 <script>
-  var lokasi = document.getElementById('lokasi');
+  var lat = document.getElementById('lati');
+  var lng = document.getElementById('long');
   if(navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
   }
 
   function successCallback(position){
-      lokasi.value= position.coords.latitude + "," + position.coords.longitude;
+      lat.value = position.coords.latitude;
+      lng.value = position.coords.longitude;
+      // lokasi.value = position.coords.latitude + "," + position.coords.longitude;
       var map = L.map('map').setView([position.coords.latitude, position.coords.longitude], 13);
       L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
         maxZoom: 19,
@@ -160,7 +164,6 @@
   function errorCallback(position){
 
   }
-
  
 </script>
 </body>
