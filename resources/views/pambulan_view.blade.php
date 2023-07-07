@@ -90,7 +90,13 @@
       height: 26%;
       width: 26%;
     }
+
+    #map { height: 150px; }
   </style>
+  {{-- leaflet --}}
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
 </head>
 
 <body>
@@ -117,9 +123,12 @@
                 </select>
             </div>
             <div class="input-group mb-3">
-                <input type="text" class="form-control" id="lokasi" name="lokasi">
+                <input type="hidden" class="form-control" id="lokasi" name="lokasi">
             </div>
         </div>
+    </div>
+    <div class="form-group row">
+      <div id="map"></div>
     </div>
     <br>
     <div>
@@ -140,6 +149,12 @@
 
   function successCallback(position){
       lokasi.value= position.coords.latitude + "," + position.coords.longitude;
+      var map = L.map('map').setView([position.coords.latitude, position.coords.longitude], 13);
+      L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+      }).addTo(map);
+      var marker = L.marker([position.coords.latitude, position.coords.longitude]).addTo(map);
   }
 
   function errorCallback(position){
