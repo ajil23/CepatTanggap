@@ -32,7 +32,8 @@ class PambulansController extends Controller
         $pambulan = new Pambulan;
         $pambulan->nama = Auth::user()->name;
         $pambulan->kep = $request->kep;
-        $pambulan->lokasi = $request->lokasi;
+        $pambulan->lat = $request->lat;
+        $pambulan->lng = $request->lng;
         $pambulan->tanggal = now();
         $pambulan->save();
         return redirect('redirects');

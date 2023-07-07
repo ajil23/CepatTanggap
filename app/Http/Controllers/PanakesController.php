@@ -29,12 +29,13 @@ class PanakesController extends Controller
      */
     public function store(Request $request)
     {
-        $pambulan = new Panakes();
-        $pambulan->nama = Auth::user()->name;
-        $pambulan->kep = $request->kep;
-        $pambulan->lokasi = $request->lokasi;
-        $pambulan->tanggal = now();
-        $pambulan->save();
+        $panakes = new Panakes();
+        $panakes->nama = Auth::user()->name;
+        $panakes->kep = $request->kep;
+        $panakes->lat = $request->lat;
+        $panakes->lng = $request->lng;
+        $panakes->tanggal = now();
+        $panakes->save();
         return redirect('redirects');
     }
 

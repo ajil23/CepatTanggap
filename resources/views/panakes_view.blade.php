@@ -111,7 +111,8 @@
                 </select>
               </div>
               <div class="input-group mb-3">
-                  <input type="hidden" class="form-control" id="lokasiku" name="lokasi">
+                  <input type="text" class="form-control" id="lat" name="lat">
+                  <input type="text" class="form-control" id="lng" name="lng">
               </div>
           </div>
           <div class="form-group row">
@@ -129,13 +130,16 @@
 </div>
     
 <script>
-  var lokasi = document.getElementById('lokasiku');
+  var lat = document.getElementById('lat');
+  var lng = document.getElementById('lng');
   if(navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
   }
 
   function successCallback(position){
-      lokasi.value= position.coords.latitude + "," + position.coords.longitude;
+      lat.value = position.coords.latitude;
+      lng.value = position.coords.longitude;
+      // lokasi.value = position.coords.latitude + "," + position.coords.longitude;
       var map = L.map('map').setView([position.coords.latitude, position.coords.longitude], 13);
       L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
         maxZoom: 19,
