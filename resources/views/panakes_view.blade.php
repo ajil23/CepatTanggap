@@ -90,7 +90,10 @@
       height: 26%;
       width: 26%;
     }
+    #map { height: 150px; }
   </style>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 </head>
 
 <body>
@@ -98,23 +101,30 @@
   <h1>Minta Bantuan</h1>
   <form method="POST" action="{{route('panakes.store')}}" enctype="multipart/form-data">
     @csrf
+    <div class="modal-body">
         <div class="form-group row">
-            <div class="input-group mb-3">
-                <select name="kep" id="select" class="form-control form-control" name="kep" required>
-                    <option value="">-- Jenis Bantuan --</option>
-                    <option value="Obat-obatan">Obat-obatan </option>
-                    <option value="Tabung Oksigen ">Tabung Oksigen</option>
+          <div class="input-group mb-3">
+              <select name="kep" id="select" class="form-control form-control" name="kep" required>
+                  <option value="">-- Jenis Bantuan --</option>
+                  <option value="Obat-obatan">Obat-obatan </option>
+                  <option value="Tabung Oksigen ">Tabung Oksigen</option>
                 </select>
-            </div>
-            <div class="input-group mb-3">
-                <input type="text" class="form-control" id="lokasiku" name="lokasi">
-            </div>
-        </div>
-        <a href="redirects">
-          <button type="button" class="btn btn-secondary">Batal</button>
-        </a>
-        <button type="submit" class="btn btn-success" >Kirim</button>
+              </div>
+              <div class="input-group mb-3">
+                  <input type="hidden" class="form-control" id="lokasiku" name="lokasi">
+              </div>
+          </div>
+          <div class="form-group row">
+            <div id="map"></div>
+          </div>
+          <br>
+          <a href="redirects">
+            <button type="button" class="btn btn-secondary">Batal</button>
+          </a>
+          <button type="submit" class="btn btn-success" >Kirim</button>
+      </div>
     </div>
+    
 </form>
 </div>
     
@@ -126,6 +136,12 @@
 
   function successCallback(position){
       lokasi.value= position.coords.latitude + "," + position.coords.longitude;
+      var map = L.map('map').setView([position.coords.latitude, position.coords.longitude], 13);
+      L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+      }).addTo(map);
+      var marker = L.marker([position.coords.latitude, position.coords.longitude]).addTo(map);
   }
 
   function errorCallback(position){

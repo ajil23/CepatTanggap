@@ -70,8 +70,8 @@
                                                 <td>{{$item->lokasi}}</td>
                                                 <td>{{$item->tanggal}}</td>
                                                 <td>
-                                                    <a href="https://www.google.com/maps/search/?api=1&query= + {{$item->lokasi}}" >
-                                                        Lihat
+                                                    <a href="https://www.google.com/maps/search/?api=1&query= + {{$item->lokasi}}" target="_blank" >
+                                                        <b>Lihat</b>
                                                     </a>
                                                 </td>
                                                 <td></td>
