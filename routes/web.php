@@ -9,6 +9,8 @@ use App\Http\Controllers\backend\PasienController;
 use App\Http\Controllers\Backend\PusatController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PapasienController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -40,6 +42,7 @@ Route::group(['middleware' => ['auth']], function() {
 
 Route::resource("/pambulan", PambulansController::class);
 Route::resource("/panakes", PanakesController::class);
+Route::resource("/papasien", PapasienController::class);
 
 Route::middleware(['auth'])->group(function() {
     Route::get('/nakes/view',[NakesController::class, 'NakesView'])->name('nakes.view');
