@@ -62,15 +62,17 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>Yohanes Faisal</td>
-                                        <td>Banyuwangi</td>
-                                        <td>12-09-1988</td>
-                                        <td>35</td>
-                                        <td>Diabetes</td>
-                                        <td>Sambirejo</td>
-                                    </tr>
+                                    @foreach ($papasien as $item)
+                                        <tr>
+                                            <td>{{$loop->iteration}}</td>
+                                            <td>{{$item->name}}</td>
+                                            <td>{{$item->tempat_lahir}}</td>
+                                            <td>{{$item->tanggal_lahir}}</td>
+                                            <td>{{$item->umur}}</td>
+                                            <td>{{$item->riwayat_penyakit}}</td>
+                                            <td>{{$item->alamat}}</td>
+                                            </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>

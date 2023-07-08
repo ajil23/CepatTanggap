@@ -114,6 +114,7 @@
     </a>
 
     {{-- profile pengguna --}}
+    <a href="{{route('papasien.index')}}">
     <button type="button" class="button button--success button--block">
       <img class="img-prof" src="{{ asset('backend/img/profile-2.png') }}" alt="">
       Profil 
