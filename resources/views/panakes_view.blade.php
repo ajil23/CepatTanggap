@@ -96,7 +96,7 @@
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 </head>
 
-<body>
+<body> 
 <div class="card">
   <h1>Minta Bantuan</h1>
   <form method="POST" action="{{route('panakes.store')}}" enctype="multipart/form-data">
@@ -151,6 +151,12 @@
   function errorCallback(position){
 
   }
+
+  // masukan ke dalam tag body onload="Javascript:AutoRefresh(6000)"
+//   function AutoRefresh(t){
+//   setTimeout("location.reload(true);", t);
+//   document.getElementById("refresh_map");
+//  }
 </script>
 </body>
 
