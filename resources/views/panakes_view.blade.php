@@ -119,8 +119,8 @@
             <div id="map"></div>
           </div>
           <br>
-          <a href="redirects">
-            <button type="button" class="btn btn-secondary">Batal</button>
+          <a href="redirects" class="btn btn-secondary">
+            Batal
           </a>
           <button type="submit" class="btn btn-success" >Kirim</button>
       </div>
