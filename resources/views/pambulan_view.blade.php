@@ -122,7 +122,7 @@
                     <option value="Serangan Hewan">Serangan Hewan</option>
                 </select>
             </div>
-            <div class="input-group mb-3">
+            <div class="input-group mb-3" id="refresh_map">
               <input type="text" class="form-control" id="lati" name="lat">
               <input type="text" class="form-control" id="long" name="lng">
             </div>
@@ -164,7 +164,6 @@
   function errorCallback(position){
 
   }
- 
 </script>
 </body>
 
