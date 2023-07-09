@@ -41,12 +41,13 @@ Route::group(['middleware' => ['auth']], function() {
  });
 
 
-Route::resource("/pambulan", PambulansController::class);
-Route::resource("/panakes", PanakesController::class);
-Route::resource("/papasien", PapasienController::class);
 
 Route::middleware(['auth'])->group(function() {
     Route::resource("/pambulan", PambulansController::class);
+    Route::resource("/pambulan", PambulansController::class);
+    Route::get('/changeStatus', [PambulansController::class, 'changeAmbulansStatus'])->name('changeStatus');
+    Route::resource("/panakes", PanakesController::class);
+    Route::resource("/papasien", PapasienController::class);
     Route::get('/nakes/view',[NakesController::class, 'NakesView'])->name('nakes.view');
     Route::get('/ambulance/view',[AmbulanceController::class, 'AmbulanceView'])->name('ambulance.view');
     Route::get('/pusat/view',[PusatController::class, 'PusatView'])->name('pusat.view');
