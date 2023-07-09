@@ -70,4 +70,11 @@ class PambulansController extends Controller
     {
         //
     }
+
+    public function changeAmbulansStatus(Request $request)
+    {
+        $pambulan = Pambulan::find($request->id);
+        $pambulan->status = $request->status;
+        $pambulan->save();
+    }
 }
