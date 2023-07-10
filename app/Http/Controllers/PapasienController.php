@@ -30,7 +30,7 @@ class PapasienController extends Controller
     public function store(Request $request)
     {
         $papasiens = new Papasien();
-        $papasiens->name = $request->name;
+        $papasiens->nama = $request->nama;
         $papasiens->tempat_lahir = $request->tempat_lahir;
         $papasiens->tanggal_lahir = $request->tanggal_lahir;
         $papasiens->umur = $request->umur;

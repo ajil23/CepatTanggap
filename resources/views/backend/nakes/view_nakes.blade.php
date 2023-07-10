@@ -57,7 +57,6 @@
                                         <th>Keperluan</th>
                                         <th>Lokasi</th>
                                         <th>Tanggal</th>
-                                        <th>Status</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -71,7 +70,6 @@
                                                     <b>Lihat</b>
                                             </td>
                                             <td>{{$item->tanggal}}</td>
-                                            <td></td>
                                             </tr>
                                     @endforeach
                                 </tbody>
