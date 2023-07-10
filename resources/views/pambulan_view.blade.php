@@ -102,6 +102,7 @@
 <body>
 <div class="card">
   <h1>Pesan Ambulans</h1>
+@include('sweetalert::alert')
   <form method="POST" action="{{route('pambulan.store')}}" enctype="multipart/form-data">
     @csrf
     <div class="modal-body">
@@ -141,6 +142,7 @@
 </form>
 </div>
 
+
 {{-- location script --}}
 <script>
   var lat = document.getElementById('lati');
@@ -165,6 +167,8 @@
 
   }
 </script>
+
+
 </body>
 
 </html>

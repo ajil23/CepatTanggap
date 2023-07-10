@@ -36,7 +36,7 @@ class PambulansController extends Controller
         $pambulan->lng = $request->lng;
         $pambulan->tanggal = now();
         $pambulan->save();
-        return redirect('redirects');
+        return redirect('redirects')->with('toast_success', 'Pesanan Sukses.');
     }
 
     /**

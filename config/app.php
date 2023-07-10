@@ -159,6 +159,7 @@ return [
         /*
          * Package Service Providers...
          */
+        RealRashid\SweetAlert\SweetAlertServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -186,6 +187,8 @@ return [
 
     'aliases' => Facade::defaultAliases()->merge([
         'LaravelPwa' => \Ladumor\LaravelPwa\LaravelPwa::class,
+        'Alert' => RealRashid\SweetAlert\Facades\Alert::class,
+
         // 'Example' => App\Facades\Example::class,
     ])->toArray(),
 
