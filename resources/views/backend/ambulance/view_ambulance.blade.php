@@ -79,7 +79,7 @@
                                                 <td>{{$item->tanggal}}</td>
                                                 <td>
                                                     <input data-id="{{$item->id}}" class="toggle-class" data-size="sm" type="checkbox" data-onstyle="success"
-                                                    data-offstyle="danger" data-toggle="switchbutton" data-onlabel="Aktif" data-offlabel="TidakAktif" data-onstyle="success" data-offstyle="danger"
+                                                    data-offstyle="danger" data-toggle="switchbutton" data-onlabel="Selesai" data-offlabel="Diproses" data-onstyle="success" data-offstyle="danger"
                                                     {{ $item->status ? 'checked' : '' }}>
                                                 </td>
                                             </tr>
