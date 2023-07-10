@@ -36,7 +36,7 @@ class PanakesController extends Controller
         $panakes->lng = $request->lng;
         $panakes->tanggal = now();
         $panakes->save();
-        return redirect('redirects');
+        return redirect('redirects')->with('toast_success', 'Pesanan Sukses.');
     }
 
     /**

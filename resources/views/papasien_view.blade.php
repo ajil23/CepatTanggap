@@ -96,6 +96,7 @@
 <body>
 <div class="card">
   <h1>Data Diri Pasien</h1>
+  @include('sweetalert::alert')
   <form method="POST" action="{{route('papasien.store')}}" enctype="multipart/form-data">
     @csrf
     <div class="modal-body">
