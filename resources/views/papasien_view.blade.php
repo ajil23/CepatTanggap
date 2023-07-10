@@ -102,7 +102,7 @@
     <div class="modal-body">
         <div class="form-group row">
           <div class="input-group mb-3">
-            <input type="text" name="name" placeholder="Nama" class="form-control" required data-validation-required-message="This field is required"> 
+            <input type="text" name="nama" placeholder="Nama" class="form-control" required data-validation-required-message="This field is required"> 
           </div>
           <div class="input-group mb-3">
             <input type="text" name="tempat_lahir" placeholder="Tempat Lahir" class="form-control" required data-validation-required-message="This field is required"> 

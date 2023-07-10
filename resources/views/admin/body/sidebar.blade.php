@@ -37,11 +37,11 @@
 </li>
 
 <!-- Nav Item - Pusat Kesehatan Collapse Menu -->
-<li class="{{'pusat/view' == request()->path() ? 'nav-item active' : 'nav-item'}}">
+<!-- <li class="{{'pusat/view' == request()->path() ? 'nav-item active' : 'nav-item'}}">
     <a class="nav-link collapsed" href="{{route('pusat.view')}}">
         <i class="fa fa-building"></i>
         <span>Pusat Kesehatan</span></a>
-</li>
+</li> -->
 
 <!-- Nav Item - Data Pasien Collapse Menu -->
 <li class="{{'pasien/view' == request()->path() ? 'nav-item active' : 'nav-item'}}">

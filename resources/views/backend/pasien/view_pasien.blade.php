@@ -65,7 +65,7 @@
                                     @foreach ($papasien as $item)
                                         <tr>
                                             <td>{{$loop->iteration}}</td>
-                                            <td>{{$item->name}}</td>
+                                            <td>{{$item->nama}}</td>
                                             <td>{{$item->tempat_lahir}}</td>
                                             <td>{{$item->tanggal_lahir}}</td>
                                             <td>{{$item->umur}}</td>
