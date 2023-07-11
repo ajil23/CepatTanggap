@@ -53,4 +53,11 @@ Route::middleware(['auth'])->group(function() {
     Route::get('/ambulance/view',[AmbulanceController::class, 'AmbulanceView'])->name('ambulance.view');
     Route::get('/pusat/view',[PusatController::class, 'PusatView'])->name('pusat.view');
     Route::get('/pasien/view',[PasienController::class, 'PasienView'])->name('pasien.view');
+
+    // markAsRead function
+    Route::get('markAsRead', function(){
+        $user = App\Models\User::find(1);
+        $user->notifications()->delete();
+        return redirect() -> back();
+    })->name('markRead');
 });

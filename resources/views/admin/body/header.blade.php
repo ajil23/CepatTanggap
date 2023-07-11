@@ -53,9 +53,11 @@
             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <i class="fas fa-bell fa-fw"></i>
             <!-- Counter - Alerts -->
+            @if (Auth()->user()->unreadNotifications->count())
             <span class="badge badge-danger badge-counter">
                 {{Auth()->user()->unreadNotifications->count()}}
             </span>
+            @endif
         </a>
         <!-- Dropdown - Alerts -->
         <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -64,7 +66,7 @@
                 Pusat Notifikasi
             </h6>
            @foreach (Auth()->user()->unreadNotifications as $notifications)
-            <a class="dropdown-item d-flex align-items-center" href="{{url('/ambulance/view')}}">
+            <a class="dropdown-item d-flex align-items-center" href="#">
                 <div class="mr-3">
                     <div class="icon-circle bg-success">
                         <i class="fas fa-bell fa-fw text-white"></i>
@@ -78,8 +80,8 @@
                     </small>
                 </div>
             </a>
-            <a class="dropdown-item text-center small text-gray-500" href="#">Tandai Sudah Dibaca</a>
             @endforeach
+            <a class="dropdown-item text-center small text-gray-500" href="{{route('markRead')}}">Tandai Sudah Dibaca</a>
         </div>
     </li>
 
