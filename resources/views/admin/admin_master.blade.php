@@ -95,7 +95,11 @@
     <!-- Page level custom scripts -->
     <script src="{{asset('backend/js/demo/chart-area-demo.js')}}"></script>
     <script src="{{asset('backend/js/demo/chart-pie-demo.js')}}"></script>
-
+    <script>
+        setTimeout(function() => {
+        location.reload();
+        }, 1000);
+    </script>
 </body>
 
 </html>

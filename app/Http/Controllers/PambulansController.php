@@ -49,9 +49,9 @@ class PambulansController extends Controller
             DB::commit();
         } catch (\Throwable $th) {
             DB::rollBack();
-            return redirect('redirects')->with('toast_error', 'Pesanan Gagal.');
+            return redirect('redirects')->with('toast_error', 'Pesanan Gagal. Coba Lagi Nanti');
         }
-        return redirect('redirects')->with('toast_success', 'Pesanan Sukses.');
+        return redirect('redirects')->with('toast_success', 'Ambulans Segera Datang.');
        
         // $pambulan = new Pambulan;
         // $pambulan->nama = Auth::user()->name;
