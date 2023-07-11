@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('lat');
             $table->string('lng');
             $table->date("tanggal");
+            $table->string('status')->default(0);
             $table->timestamps();
         });
     }

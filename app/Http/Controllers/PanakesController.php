@@ -70,4 +70,11 @@ class PanakesController extends Controller
     {
         //
     }
+
+    public function changeBantuanStatus(Request $request)
+    {
+        $pambulan = Panakes::find($request->id);
+        $pambulan->status = $request->status;
+        $pambulan->save();
+    }
 }

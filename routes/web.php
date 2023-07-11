@@ -46,6 +46,7 @@ Route::middleware(['auth'])->group(function() {
     Route::resource("/pambulan", PambulansController::class);
     Route::resource("/pambulan", PambulansController::class);
     Route::get('/changeStatus', [PambulansController::class, 'changeAmbulansStatus'])->name('changeStatus');
+    Route::get('/changeStatus', [PanakesController::class, 'changeBantuanStatus'])->name('changeStatus');
     Route::resource("/panakes", PanakesController::class);
     Route::resource("/papasien", PapasienController::class);
     Route::get('/nakes/view',[NakesController::class, 'NakesView'])->name('nakes.view');
