@@ -21,6 +21,13 @@
     <!-- Custom styles for this template-->
     <link href="{{asset('backend/css/sb-admin-2.min.css')}}" rel="stylesheet">
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js" integrity="sha512-F636MAkMAhtTplahL9F6KmTfxTmYcAcjcCkyu0f0voT3N/6vzAuJ4Num55a0gEJ+hRLHhdz3vDvZpf6kqgEa5w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-toggle/2.2.2/css/bootstrap-toggle.css" integrity="sha512-9tISBnhZjiw7MV4a1gbemtB9tmPcoJ7ahj8QWIc0daBCdvlKjEA48oLlo6zALYm3037tPYYulT0YQyJIJJoyMQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap-switch-button@1.1.0/css/bootstrap-switch-button.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap-switch-button@1.1.0/dist/bootstrap-switch-button.min.js"></script>
+
+
 </head>
 
 <body id="page-top">
@@ -57,6 +64,7 @@
                                         <th>Keperluan</th>
                                         <th>Lokasi</th>
                                         <th>Tanggal</th>
+                                        <th>Status</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -70,6 +78,11 @@
                                                     <b>Lihat</b>
                                             </td>
                                             <td>{{$item->tanggal}}</td>
+                                            <td>
+                                                <input data-id="{{$item->id}}" class="toggle-class" data-size="sm" type="checkbox" data-onstyle="success"
+                                                data-offstyle="danger" data-toggle="switchbutton" data-onlabel="Selesai" data-offlabel="Diproses" data-onstyle="success" data-offstyle="danger"
+                                                {{ $item->status ? 'checked' : '' }}>
+                                            </td>
                                             </tr>
                                     @endforeach
                                 </tbody>
@@ -142,5 +155,27 @@
     <script src="{{asset('backend/js/demo/chart-pie-demo.js')}}"></script>
 
 </body>
+
+<script>
+    $(document).ready(function(){
+        $("#panakes_table").DataTable()
+    })
+
+    $(function() {
+        $('.toggle-class').change(function() {
+            var status = $(this).prop('checked') == true ? 1 : 0;
+            var id = $(this).data('id');
+            $.ajax({
+                type: "GET",
+                dataType: "json",
+                url: '/changeStatus',
+                data: {'status': status, 'id': id},
+                success: function(data){
+                    console.log('Success')
+                }
+            })
+        });
+    });
+</script>
 
 </html>
