@@ -170,7 +170,7 @@
             $.ajax({
                 type: "GET",
                 dataType: "json",
-                url: '/changeStatus',
+                url: '/gantiStatus',
                 data: {'status': status, 'id': id},
                 success: function(data){
                     console.log('Success')
