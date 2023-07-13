@@ -23,4 +23,13 @@ class AmbulanceController extends Controller
         // $id = auth()->user()->unreadNotifications[0]->id;
         // auth()->user()->unreadNotifications->where('id', $id)->markAsRead();
     }
+
+    public function search(Request $request){
+        if($request -> has('search')){
+            $pambulans = Pambulan::where('nama','LIKE','%'.$request->search.'%')->get();
+        } else {
+            $pambulans = Pambulan::all();
+        }
+        return view('backend.ambulance.view_ambulance',['pambulan' => $pambulans]);
+    }
 }
