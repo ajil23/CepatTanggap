@@ -12,7 +12,7 @@ use App\Models\Nakes;
 class NakesController extends Controller
 {
     public function NakesView(){
-        return view('backend.nakes.view_nakes')->with(['panakes' => Panakes::all()]);
+        return view('backend.nakes.view_nakes')->with(['panakes' => Panakes::orderBy('id', 'desc')->get()]);
     }
     public function search(Request $request){
         if($request -> has('search')){
