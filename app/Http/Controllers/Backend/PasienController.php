@@ -23,4 +23,13 @@ class PasienController extends Controller
         // $email = DB::table('users')->where('role', '0')->value('name');
         return view('backend.pasien.view_pasien')->with(['user' => User::where('role', 0)->get(), User::orderBy('name', 'asc')->get()]);
     }
+
+    public function search(Request $request){
+        if($request -> has('search')){
+            $user = User::where('name','LIKE','%'.$request->search.'%')->get();
+        } else {
+            $user = User::all();
+        }
+        return view('backend.pasien.view_pasien',['user' => $user]);
+    }
 }
