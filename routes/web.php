@@ -56,6 +56,7 @@ Route::middleware(['auth'])->group(function() {
     Route::get('/nakes/search',[NakesController::class, 'search']);
     Route::get('/pusat/view',[PusatController::class, 'PusatView'])->name('pusat.view');
     Route::get('/pasien/view',[PasienController::class, 'PasienView'])->name('pasien.view');
+    Route::get('/pasien/search',[PasienController::class, 'search']);
 
     // markAsRead function
     Route::get('markAsRead', function(){
