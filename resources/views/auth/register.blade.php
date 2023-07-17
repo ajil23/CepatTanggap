@@ -42,6 +42,18 @@
                                         <x-input id="name" class="form-control" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
                                     </div>
                                     <div class="form-group">
+                                        <x-label for="tgl_lahir" value="{{ __('Tanggal Lahir') }}" />
+                                        <x-input id="tgl_lahir" class="form-control" type="date" name="tgl_lahir" :value="old('tgl_lahir')" required autofocus autocomplete="tgl_lahir" />
+                                    </div>
+                                    <div class="form-group">
+                                        <x-label for="riwayat" value="{{ __('Riwayat Penyakit') }}" />
+                                        <x-input id="riwayat" class="form-control" type="text" name="riwayat" :value="old('riwayat')" required autofocus autocomplete="riwayat" />
+                                    </div>
+                                    <div class="form-group">
+                                        <x-label for="alamat" value="{{ __('Alamat') }}" />
+                                        <x-input id="alamat" class="form-control" type="text" name="alamat" :value="old('alamat')" required autofocus autocomplete="alamat" />
+                                    </div>
+                                    <div class="form-group">
                                         <x-label for="email" value="{{ __('Email') }}" />
                                         <x-input id="email" class="form-control" type="email" name="email" :value="old('email')" required autocomplete="username" />
                                     </div>

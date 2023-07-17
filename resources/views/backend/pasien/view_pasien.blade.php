@@ -54,22 +54,18 @@
                                     <tr>
                                         <th>No</th>
                                         <th>Nama Lengkap</th>
-                                        <th>Tempat Lahir</th>
                                         <th>Tanggal Lahir</th>
-                                        <th>Umur</th>
                                         <th>Riwayat Penyakit</th>
                                         <th>Alamat</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($papasien as $item)
+                                    @foreach ($user as $item)
                                         <tr>
                                             <td>{{$loop->iteration}}</td>
-                                            <td>{{$item->nama}}</td>
-                                            <td>{{$item->tempat_lahir}}</td>
-                                            <td>{{$item->tanggal_lahir}}</td>
-                                            <td>{{$item->umur}}</td>
-                                            <td>{{$item->riwayat_penyakit}}</td>
+                                            <td>{{$item->name}}</td>
+                                            <td>{{$item->tgl_lahir}}</td>
+                                            <td>{{$item->riwayat}}</td>
                                             <td>{{$item->alamat}}</td>
                                             </tr>
                                     @endforeach

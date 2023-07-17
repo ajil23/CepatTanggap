@@ -26,10 +26,10 @@
 <li class="{{'ambulance/view' == request()->path() ? 'nav-item active' : 'nav-item'}}">
     <a class="nav-link collapsed" href="{{route('ambulance.view')}}">
         <i class="fa fa-ambulance"></i>
-        <span>Pertolongan Ambulance</span></a>
+        <span>Panggil Ambulance</span></a>
 </li>
 
-<!-- Nav Item - Pertolongan Nakes Collapse Menu -->
+<!-- Nav Item - Panggil Bantuan Collapse Menu -->
 <li class="{{'nakes/view' == request()->path() ? 'nav-item active' : 'nav-item'}}">
     <a class="nav-link collapsed" href="{{route('nakes.view')}}">
         <i class="fa fa-user-md"></i>
