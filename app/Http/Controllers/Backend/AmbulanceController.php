@@ -12,7 +12,7 @@ use App\Models\Pambulan;
 class AmbulanceController extends Controller
 {
     public function AmbulanceView(){
-        return view('backend.ambulance.view_ambulance')->with(['pambulan' => Pambulan::all()]);
+        return view('backend.ambulance.view_ambulance')->with(['pambulan' => Pambulan::orderBy('id', 'desc')->get()]);
     }
 
     public function MarkAsRead(){
