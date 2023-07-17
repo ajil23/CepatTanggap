@@ -15,8 +15,10 @@ return new class extends Migration
             $table->id();
             $table->string('nama');
             $table->string('kep');
-            $table->string('lokasi');
+            $table->string('lat');
+            $table->string('lng');
             $table->date("tanggal");
+            $table->string('status')->default(0);
             $table->timestamps();
         });
     }

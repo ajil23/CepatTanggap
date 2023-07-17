@@ -12,7 +12,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Pertolongan Nakes</title>
+    <title>Panggil Bantuan</title>
 
     <!-- Custom fonts for this template-->
     <link href="{{asset('backend/vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
@@ -20,6 +20,13 @@
 
     <!-- Custom styles for this template-->
     <link href="{{asset('backend/css/sb-admin-2.min.css')}}" rel="stylesheet">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js" integrity="sha512-F636MAkMAhtTplahL9F6KmTfxTmYcAcjcCkyu0f0voT3N/6vzAuJ4Num55a0gEJ+hRLHhdz3vDvZpf6kqgEa5w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-toggle/2.2.2/css/bootstrap-toggle.css" integrity="sha512-9tISBnhZjiw7MV4a1gbemtB9tmPcoJ7ahj8QWIc0daBCdvlKjEA48oLlo6zALYm3037tPYYulT0YQyJIJJoyMQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap-switch-button@1.1.0/css/bootstrap-switch-button.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap-switch-button@1.1.0/dist/bootstrap-switch-button.min.js"></script>
+
 
 </head>
 
@@ -42,11 +49,28 @@
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Pertolongan Nakes</h1>
+                        <h1 class="h3 mb-0 text-gray-800">Panggil Bantuan</h1>
+                        <a href="{{route('export-bantuan')}}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Unduh Laporan</a>
                     </div>
 
                     <!-- Content Row -->
                 <div class="card shadow mb-4">
+                    <br>
+                        <div class="row">
+                            <div class="col-sm-12 col-md-6">
+                                <form action="/nakes/search" class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search" method="GET">
+                                    <div class="input-group">
+                                    <input type="search" name="search" class="form-control bg-light border-0 small" placeholder="Cari Pasien..."
+                                            aria-label="Search" aria-describedby="basic-addon2">
+                                        <div class="input-group-append">
+                                            <button class="btn btn-primary" type="submit">
+                                             <i class="fas fa-search fa-sm"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
                     <div class="card-body">
                         <div class="table-responsive">
                             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
@@ -57,7 +81,6 @@
                                         <th>Keperluan</th>
                                         <th>Lokasi</th>
                                         <th>Tanggal</th>
-                                        <th>Lihat Peta</th>
                                         <th>Status</th>
                                     </tr>
                                 </thead>
@@ -67,10 +90,16 @@
                                             <td>{{$loop->iteration}}</td>
                                             <td>{{$item->nama}}</td>
                                             <td>{{$item->kep}}</td>
-                                            <td>{{$item->lokasi}}</td>
+                                            <td>
+                                                <a href="https://www.google.com/maps/search/?api=1&query= + {{$item->lat}},{{$item->lng}}" target="_blank" >
+                                                    <b>Lihat</b>
+                                            </td>
                                             <td>{{$item->tanggal}}</td>
-                                            <td>lihat</td>
-                                            <td></td>
+                                            <td>
+                                                <input data-id="{{$item->id}}" class="toggle-class" data-size="sm" type="checkbox" data-onstyle="primary"
+                                                data-offstyle="danger" data-toggle="switchbutton" data-onlabel="Selesai" data-offlabel="Diproses" data-onstyle="success" data-offstyle="danger"
+                                                {{ $item->status ? 'checked' : '' }}>
+                                            </td>
                                             </tr>
                                     @endforeach
                                 </tbody>
@@ -111,15 +140,15 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Apakah Anda Yakin Ingin Keluar?</h5>
                     <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span>
                     </button>
                 </div>
-                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-body">Pilih Tombol "Keluar" Untuk Keluar Dari Halaman Petugas.</div>
                 <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="{{route('logout.perform')}}">Logout</a>
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Batal</button>
+                    <a class="btn btn-primary" href="{{route('logout.perform')}}">Keluar</a>
                 </div>
             </div>
         </div>
@@ -143,5 +172,27 @@
     <script src="{{asset('backend/js/demo/chart-pie-demo.js')}}"></script>
 
 </body>
+
+<script>
+    $(document).ready(function(){
+        $("#panakes_table").DataTable()
+    })
+
+    $(function() {
+        $('.toggle-class').change(function() {
+            var status = $(this).prop('checked') == true ? 1 : 0;
+            var id = $(this).data('id');
+            $.ajax({
+                type: "GET",
+                dataType: "json",
+                url: '/changeStatus',
+                data: {'status': status, 'id': id},
+                success: function(data){
+                    console.log('Success')
+                }
+            })
+        });
+    });
+</script>
 
 </html>

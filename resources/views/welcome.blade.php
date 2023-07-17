@@ -1230,14 +1230,13 @@
                             </div>
                             <br>
                             <div class="name__user">
-                                <h3>Panggil Nakes</h3>
+                                <h3>Panggil Bantuan</h3>
                             </div>
                         </div>
                     </div>
 
                     <div class="comments">
-                        <p>Panggil Nakes merupakan layanan pesan tenaga kesehatan untuk kepentingan tertentu seperti,
-                            pengecekan kesehatan, antar obat-obatan, dan antar fasilitas kesehatan.</p>
+                        <p>Panggil Bantuan merupakan layanan yang memungkinkan pengguna untuk mendapatkan pertolongan berupa pembeliaan obat-obatan atau semcamnya secara online.</p>
                     </div>
                 </div>
             </div>

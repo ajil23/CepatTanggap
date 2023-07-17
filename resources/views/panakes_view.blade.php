@@ -90,47 +90,73 @@
       height: 26%;
       width: 26%;
     }
+    #map { height: 150px; }
   </style>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 </head>
 
-<body>
+<body> 
 <div class="card">
   <h1>Minta Bantuan</h1>
   <form method="POST" action="{{route('panakes.store')}}" enctype="multipart/form-data">
     @csrf
+    <div class="modal-body">
         <div class="form-group row">
-            <div class="input-group mb-3">
-                <select name="kep" id="select" class="form-control form-control" name="kep" required>
-                    <option value="">-- Jenis Bantuan --</option>
-                    <option value="Obat-obatan">Obat-obatan </option>
-                    <option value="Tabung Oksigen ">Tabung Oksigen</option>
+          <div class="input-group mb-3">
+              <select name="kep" id="select" class="form-control form-control" name="kep" required>
+                  <option value="">-- Jenis Bantuan --</option>
+                  <option value="Obat-obatan">Obat-obatan </option>
+                  <option value="Tabung Oksigen ">Tabung Oksigen</option>
                 </select>
-            </div>
-            <div class="input-group mb-3">
-                <input type="text" class="form-control" id="lokasiku" name="lokasi">
-            </div>
-        </div>
-        <a href="redirects">
-          <button type="button" class="btn btn-secondary">Batal</button>
-        </a>
-        <button type="submit" class="btn btn-success" >Kirim</button>
+              </div>
+              <div class="input-group mb-3">
+                  <input type="text" class="form-control" id="lat" name="lat">
+                  <input type="text" class="form-control" id="lng" name="lng">
+              </div>
+          </div>
+          <div class="form-group row">
+            <div id="map"></div>
+          </div>
+          <br>
+          <a href="redirects" class="btn btn-secondary">
+            Batal
+          </a>
+          <button type="submit" class="btn btn-success" >Kirim</button>
+      </div>
     </div>
+    
 </form>
 </div>
     
 <script>
-  var lokasi = document.getElementById('lokasiku');
+  var lat = document.getElementById('lat');
+  var lng = document.getElementById('lng');
   if(navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
   }
 
   function successCallback(position){
-      lokasi.value= position.coords.latitude + "," + position.coords.longitude;
+      lat.value = position.coords.latitude;
+      lng.value = position.coords.longitude;
+      // lokasi.value = position.coords.latitude + "," + position.coords.longitude;
+      var map = L.map('map').setView([position.coords.latitude, position.coords.longitude], 13);
+      L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+      }).addTo(map);
+      var marker = L.marker([position.coords.latitude, position.coords.longitude]).addTo(map);
   }
 
   function errorCallback(position){
 
   }
+
+  // masukan ke dalam tag body onload="Javascript:AutoRefresh(6000)"
+//   function AutoRefresh(t){
+//   setTimeout("location.reload(true);", t);
+//   document.getElementById("refresh_map");
+//  }
 </script>
 </body>
 

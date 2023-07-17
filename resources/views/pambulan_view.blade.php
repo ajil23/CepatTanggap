@@ -90,12 +90,19 @@
       height: 26%;
       width: 26%;
     }
+
+    #map { height: 150px;}
   </style>
+  {{-- leaflet --}}
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
 </head>
 
 <body>
 <div class="card">
   <h1>Pesan Ambulans</h1>
+@include('sweetalert::alert')
   <form method="POST" action="{{route('pambulan.store')}}" enctype="multipart/form-data">
     @csrf
     <div class="modal-body">
@@ -116,34 +123,52 @@
                     <option value="Serangan Hewan">Serangan Hewan</option>
                 </select>
             </div>
-            <div class="input-group mb-3">
-                <input type="text" class="form-control" id="lokasi" name="lokasi">
+            <div class="input-group mb-3" id="refresh_map">
+              <input type="text" class="form-control" id="lati" name="lat">
+              <input type="text" class="form-control" id="long" name="lng">
             </div>
         </div>
     </div>
+    <div class="form-group row">
+      <div id="map"></div>
+    </div>
+    <br>
     <div>
-        <a href="redirects">
-            <button type="button" class="btn btn-secondary">Batal</button>
+        <a href="redirects" class="btn btn-secondary">
+          Batal
         </a>
         <button type="submit" class="btn btn-success">Kirim</button>
     </div>
 </form>
 </div>
-    
+
+
+{{-- location script --}}
 <script>
-  var lokasi = document.getElementById('lokasi');
+  var lat = document.getElementById('lati');
+  var lng = document.getElementById('long');
   if(navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
   }
 
   function successCallback(position){
-      lokasi.value= position.coords.latitude + "," + position.coords.longitude;
+      lat.value = position.coords.latitude;
+      lng.value = position.coords.longitude;
+      // lokasi.value = position.coords.latitude + "," + position.coords.longitude;
+      var map = L.map('map').setView([position.coords.latitude, position.coords.longitude], 13);
+      L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+      }).addTo(map);
+      var marker = L.marker([position.coords.latitude, position.coords.longitude]).addTo(map);
   }
 
   function errorCallback(position){
 
   }
 </script>
+
+
 </body>
 
 </html>

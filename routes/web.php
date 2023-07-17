@@ -41,16 +41,26 @@ Route::middleware([
 Route::group(['middleware' => ['auth']], function() {
     Route::get('/logout', [AdminController::class, 'perform'])->name('logout.perform');
  });
-
-
-
-Route::resource("/pambulan", PambulansController::class);
-Route::resource("/panakes", PanakesController::class);
-
 Route::middleware(['auth'])->group(function() {
+    Route::resource("/pambulan", PambulansController::class);
+    Route::resource("/pambulan", PambulansController::class);
+    Route::get('/gantiStatus', [PambulansController::class, 'changeAmbulansStatus'])->name('gantiStatus');
+    Route::get('/changeStatus', [PanakesController::class, 'changeBantuanStatus'])->name('changeStatus');
+    Route::resource("/panakes", PanakesController::class);
+    Route::resource("/papasien", PapasienController::class);
     Route::get('/nakes/view',[NakesController::class, 'NakesView'])->name('nakes.view');
     Route::get('/ambulance/view',[AmbulanceController::class, 'AmbulanceView'])->name('ambulance.view');
+    Route::get('/ambulance/search', [AmbulanceController::class, 'search']);
+    Route::get('/ambulance/print', [AmbulanceController::class, 'pambulansExport'])->name('export-ambulans');
+    Route::get('/bantuan/print', [NakesController::class, 'panakesExport'])->name('export-bantuan');
+    Route::get('/nakes/search',[NakesController::class, 'search']);
     Route::get('/pusat/view',[PusatController::class, 'PusatView'])->name('pusat.view');
     Route::get('/pasien/view',[PasienController::class, 'PasienView'])->name('pasien.view');
-});
 
+    // markAsRead function
+    Route::get('markAsRead', function(){
+        $user = App\Models\User::find(1);
+        $user->notifications()->delete();
+        return redirect() -> back();
+    })->name('markRead');
+});

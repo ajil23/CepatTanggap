@@ -159,6 +159,8 @@ return [
         /*
          * Package Service Providers...
          */
+        RealRashid\SweetAlert\SweetAlertServiceProvider::class,
+        Mckenziearts\Notify\LaravelNotifyServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -171,6 +173,7 @@ return [
         App\Providers\FortifyServiceProvider::class,
         App\Providers\JetstreamServiceProvider::class,
         Ladumor\LaravelPwa\PWAServiceProvider::class,
+        Maatwebsite\Excel\ExcelServiceProvider::class,
     ])->toArray(),
 
     /*
@@ -186,6 +189,8 @@ return [
 
     'aliases' => Facade::defaultAliases()->merge([
         'LaravelPwa' => \Ladumor\LaravelPwa\LaravelPwa::class,
+        'Alert' => RealRashid\SweetAlert\Facades\Alert::class,
+        'Excel' => Maatwebsite\Excel\Facades\Excel::class,
         // 'Example' => App\Facades\Example::class,
     ])->toArray(),
 

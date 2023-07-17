@@ -11,14 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('pambulan', function (Blueprint $table) {
-            $table->id();
-            $table->string('nama');
-            $table->string('kep');
-            $table->string('lat');
-            $table->string('lng');
-            $table->date("tanggal");
-            $table->string('status')->default(0);
+        Schema::create('notifications', function (Blueprint $table) {
+            $table->uuid('id')->primary();
+            $table->string('type');
+            $table->morphs('notifiable');
+            $table->text('data');
+            $table->timestamp('read_at')->nullable();
             $table->timestamps();
         });
     }
@@ -28,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('pambulan');
+        Schema::dropIfExists('notifications');
     }
 };

@@ -4,7 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Pambulan;
+use App\Models\User;
+use App\Notifications\PambulanNotification;
+use Illuminate\Support\Facades\Notification;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use PhpParser\Node\Stmt\TryCatch;
 
 class PambulansController extends Controller
 {
@@ -29,14 +34,36 @@ class PambulansController extends Controller
      */
     public function store(Request $request)
     {
-        $pambulan = new Pambulan;
-        $pambulan->nama = Auth::user()->name;
-        $pambulan->kep = $request->kep;
-        $pambulan->lokasi = $request->lokasi;
-        $pambulan->tanggal = now();
-        $pambulan->save();
-        return redirect('redirects');
+        $pambulanData = [
+            'nama' => Auth() -> user() -> name,
+            'kep' => $request->kep,
+            'lat' => $request->lat,
+            'lng' => $request->lng,
+            'tanggal' => now(),
+        ];
+        DB::beginTransaction();
+        try {
+            Pambulan::create($pambulanData);
+            $userSchema = User::where('role', '1')->get();
+            Notification::send($userSchema, new PambulanNotification($pambulanData)); 
+            DB::commit();
+        } catch (\Throwable $th) {
+            DB::rollBack();
+            return redirect('redirects')->with('toast_error', 'Pesanan Gagal. Coba Lagi Nanti');
+        }
+        return redirect('redirects')->with('toast_success', 'Ambulans Segera Datang.');
+       
+        // $pambulan = new Pambulan;
+        // $pambulan->nama = Auth::user()->name;
+        // $pambulan->kep = $request->kep;
+        // $pambulan->lat = $request->lat;
+        // $pambulan->lng = $request->lng;
+        // $pambulan->tanggal = now();
+        // $pambulan->save();
+        // return redirect('redirects')->with('toast_success', 'Pesanan Sukses.');
     }
+
+
 
     /**
      * Display the specified resource.
@@ -68,5 +95,12 @@ class PambulansController extends Controller
     public function destroy(string $id)
     {
         //
+    }
+
+    public function changeAmbulansStatus(Request $request)
+    {
+        $pambulan = Pambulan::find($request->id);
+        $pambulan->status = $request->status;
+        $pambulan->save();
     }
 }
