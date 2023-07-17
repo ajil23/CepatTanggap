@@ -9,7 +9,7 @@ use App\Http\Controllers\backend\PasienController;
 use App\Http\Controllers\Backend\PusatController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\PapasienController;
+use App\Http\Controllers\Backend\PapasienController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,13 +36,16 @@ Route::middleware([
     })->name('admin.index');
 });
 
+
+
 Route::group(['middleware' => ['auth']], function() {
     Route::get('/logout', [AdminController::class, 'perform'])->name('logout.perform');
  });
 
+
+
 Route::resource("/pambulan", PambulansController::class);
 Route::resource("/panakes", PanakesController::class);
-Route::resource("/papasien", PapasienController::class);
 
 Route::middleware(['auth'])->group(function() {
     Route::get('/nakes/view',[NakesController::class, 'NakesView'])->name('nakes.view');
@@ -50,3 +53,4 @@ Route::middleware(['auth'])->group(function() {
     Route::get('/pusat/view',[PusatController::class, 'PusatView'])->name('pusat.view');
     Route::get('/pasien/view',[PasienController::class, 'PasienView'])->name('pasien.view');
 });
+

@@ -42,7 +42,7 @@
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Data Pasien</h1>
+                        <h1 class="h3 mb-0 text-gray-800">Data Pengguna</h1>
                     </div>
 
                     <!-- Content Row -->
@@ -54,22 +54,18 @@
                                     <tr>
                                         <th>No</th>
                                         <th>Nama Lengkap</th>
-                                        <th>Tempat Lahir</th>
                                         <th>Tanggal Lahir</th>
-                                        <th>Umur</th>
                                         <th>Riwayat Penyakit</th>
                                         <th>Alamat</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($papasien as $item)
+                                    @foreach ($user as $item)
                                         <tr>
                                             <td>{{$loop->iteration}}</td>
                                             <td>{{$item->name}}</td>
-                                            <td>{{$item->tempat_lahir}}</td>
-                                            <td>{{$item->tanggal_lahir}}</td>
-                                            <td>{{$item->umur}}</td>
-                                            <td>{{$item->riwayat_penyakit}}</td>
+                                            <td>{{$item->tgl_lahir}}</td>
+                                            <td>{{$item->riwayat}}</td>
                                             <td>{{$item->alamat}}</td>
                                             </tr>
                                     @endforeach

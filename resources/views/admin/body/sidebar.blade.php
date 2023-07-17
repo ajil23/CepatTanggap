@@ -26,28 +26,21 @@
 <li class="{{'ambulance/view' == request()->path() ? 'nav-item active' : 'nav-item'}}">
     <a class="nav-link collapsed" href="{{route('ambulance.view')}}">
         <i class="fa fa-ambulance"></i>
-        <span>Pertolongan Ambulance</span></a>
+        <span>Panggil Ambulance</span></a>
 </li>
 
-<!-- Nav Item - Pertolongan Nakes Collapse Menu -->
+<!-- Nav Item - Panggil Bantuan Collapse Menu -->
 <li class="{{'nakes/view' == request()->path() ? 'nav-item active' : 'nav-item'}}">
     <a class="nav-link collapsed" href="{{route('nakes.view')}}">
         <i class="fa fa-user-md"></i>
-        <span>Pertolongan Nakes</span></a>
-</li>
-
-<!-- Nav Item - Pusat Kesehatan Collapse Menu -->
-<li class="{{'pusat/view' == request()->path() ? 'nav-item active' : 'nav-item'}}">
-    <a class="nav-link collapsed" href="{{route('pusat.view')}}">
-        <i class="fa fa-building"></i>
-        <span>Pusat Kesehatan</span></a>
+        <span>Panggil Bantuan</span></a>
 </li>
 
 <!-- Nav Item - Data Pasien Collapse Menu -->
 <li class="{{'pasien/view' == request()->path() ? 'nav-item active' : 'nav-item'}}">
     <a class="nav-link collapsed" href="{{route('pasien.view')}}">
         <i class="fa fa-server"></i>
-        <span>Data Pasien</span></a>
+        <span>Data Pengguna</span></a>
 </li>
 
 <!-- Divider -->
