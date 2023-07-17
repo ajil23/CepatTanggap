@@ -4,6 +4,8 @@ namespace App\Http\Controllers\backend;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Exports\PambulanExport;
+use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Support\Facades\Notification;
 use App\Models\Pambulan;
 
@@ -31,5 +33,9 @@ class AmbulanceController extends Controller
             $pambulans = Pambulan::all();
         }
         return view('backend.ambulance.view_ambulance',['pambulan' => $pambulans]);
+    }
+
+    public function pambulansExport(){
+        return Excel::download(new PambulanExport, 'Panggilan_Ambulan.xlsx');
     }
 }
