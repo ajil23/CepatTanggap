@@ -10,6 +10,7 @@ use App\Http\Controllers\Backend\PusatController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Backend\PapasienController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -57,7 +58,7 @@ Route::middleware(['auth'])->group(function() {
     Route::get('/pusat/view',[PusatController::class, 'PusatView'])->name('pusat.view');
     Route::get('/pasien/view',[PasienController::class, 'PasienView'])->name('pasien.view');
     Route::get('/pasien/search',[PasienController::class, 'search']);
-
+    Route::get('status-petugas', [UserController::class, 'userOnlineStatus']);
     // markAsRead function
     Route::get('markAsRead', function(){
         $user = App\Models\User::find(1);

@@ -91,6 +91,11 @@
       width: 26%;
     }
 
+    .active-position{
+      text-align: left; 
+      font-size: 13px;
+    }
+
     #map { height: 150px;}
   </style>
   {{-- leaflet --}}
@@ -123,9 +128,25 @@
                     <option value="Serangan Hewan">Serangan Hewan</option>
                 </select>
             </div>
+            <div class="input-group mb-3">
+              @php $users = App\Models\User::where('role', '1')->get(); @endphp
+              @foreach ($users as $user)
+              @if (Cache::has('user-is-online-' . $user->id))
+                  <p class="form-control active-position">
+                    Petugas Aktif
+                    {{\Carbon\Carbon::parse($user->last_seen)->diffForhumans()}}
+                  </p>
+              @else
+                  <p class="form-control active-position">
+                    Petugas non-Aktif
+                    {{\Carbon\Carbon::parse($user->last_seen)->diffForhumans()}}
+                  </p>
+              @endif
+              @endforeach
+            </div>
             <div class="input-group mb-3" id="refresh_map">
-              <input type="text" class="form-control" id="lati" name="lat">
-              <input type="text" class="form-control" id="long" name="lng">
+              <input type="hidden" class="form-control" id="lati" name="lat">
+              <input type="hidden" class="form-control" id="long" name="lng">
             </div>
         </div>
     </div>
