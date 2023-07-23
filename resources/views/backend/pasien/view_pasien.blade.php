@@ -43,6 +43,7 @@
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
                         <h1 class="h3 mb-0 text-gray-800">Data Pengguna</h1>
+                        <a href="{{route('export-pasien')}}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Unduh Laporan</a>
                     </div>
 
                     <!-- Content Row -->
@@ -156,7 +157,7 @@
     <script src="{{asset('backend/js/demo/chart-pie-demo.js')}}"></script>
 
     @php
-        header("Refresh:30");
+        header("Refresh:10");
     @endphp
 </body>
 

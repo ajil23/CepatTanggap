@@ -54,6 +54,7 @@ Route::middleware(['auth'])->group(function() {
     Route::get('/ambulance/search', [AmbulanceController::class, 'search']);
     Route::get('/ambulance/print', [AmbulanceController::class, 'pambulansExport'])->name('export-ambulans');
     Route::get('/bantuan/print', [NakesController::class, 'panakesExport'])->name('export-bantuan');
+    Route::get('/pasien/print', [PasienController::class, 'pasienExport'])->name('export-pasien');
     Route::get('/nakes/search',[NakesController::class, 'search']);
     Route::get('/pusat/view',[PusatController::class, 'PusatView'])->name('pusat.view');
     Route::get('/pasien/view',[PasienController::class, 'PasienView'])->name('pasien.view');

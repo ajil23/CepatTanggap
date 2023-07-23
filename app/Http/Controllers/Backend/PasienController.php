@@ -7,6 +7,8 @@ use App\Models\Papasien;
 use Illuminate\Http\Request;
 use App\Models\Pasien;
 use App\Models\User;
+use App\Exports\PasienExport;
+use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
@@ -31,5 +33,9 @@ class PasienController extends Controller
             $user = User::all();
         }
         return view('backend.pasien.view_pasien',['user' => $user]);
+    }
+
+    public function pasienExport(){
+        return Excel::download(new PasienExport, 'Data_Pasien.xlsx');
     }
 }
