@@ -4,6 +4,9 @@
 <head>
 
     <meta charset="utf-8">
+    <meta name="theme-color" content="#6777ef"/>
+    <link rel="apple-touch-icon" href="{{ asset('app.png') }}">
+    <link rel="manifest" href="{{ asset('/manifest.json') }}">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
@@ -75,6 +78,15 @@
         </div>
 
     </div>
+
+    <script src="{{ asset('/sw.js') }}"></script>
+        <script>
+            if (!navigator.serviceWorker.controller) {
+                navigator.serviceWorker.register("/sw.js").then(function (reg) {
+                    console.log("Service worker has been registered for scope: " + reg.scope);
+                });
+            }
+        </script>
 
     <!-- Bootstrap core JavaScript-->
     <script src="{{asset('backend/js/jquery.min.js')}}"></script>

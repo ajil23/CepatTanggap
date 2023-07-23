@@ -3,6 +3,9 @@
 
 <head>
   <meta charset="UTF-8">
+  <meta name="theme-color" content="#6777ef"/>
+  <link rel="apple-touch-icon" href="{{ asset('app.png') }}">
+  <link rel="manifest" href="{{ asset('/manifest.json') }}">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
@@ -134,12 +137,11 @@
               @if (Cache::has('user-is-online-' . $user->id))
                   <p class="form-control active-position">
                     Petugas Aktif
-                    {{\Carbon\Carbon::parse($user->last_seen)->diffForhumans()}}
                   </p>
               @else
                   <p class="form-control active-position">
-                    Petugas non-Aktif
-                    {{\Carbon\Carbon::parse($user->last_seen)->diffForhumans()}}
+                    Petugas Tidak Aktif 
+                    {{-- {{\Carbon\Carbon::parse($user->last_seen)->diffForhumans()}} --}}
                   </p>
               @endif
               @endforeach
@@ -163,6 +165,14 @@
 </form>
 </div>
 
+<script src="{{ asset('/sw.js') }}"></script>
+        <script>
+            if (!navigator.serviceWorker.controller) {
+                navigator.serviceWorker.register("/sw.js").then(function (reg) {
+                    console.log("Service worker has been registered for scope: " + reg.scope);
+                });
+            }
+        </script>
 
 {{-- location script --}}
 <script>

@@ -96,7 +96,7 @@
     <script src="{{asset('backend/js/demo/chart-area-demo.js')}}"></script>
     <script src="{{asset('backend/js/demo/chart-pie-demo.js')}}"></script>
     @php
-        header("Refresh:30");
+        header("Refresh:10");
     @endphp
 </body>
 
