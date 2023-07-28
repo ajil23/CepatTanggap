@@ -3,9 +3,9 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\PambulansController;
 use App\Http\Controllers\PanakesController;
-use App\Http\Controllers\backend\AmbulanceController;
-use App\Http\Controllers\backend\NakesController;
-use App\Http\Controllers\backend\PasienController;
+use App\Http\Controllers\Backend\AmbulanceController;
+use App\Http\Controllers\Backend\NakesController;
+use App\Http\Controllers\Backend\PasienController;
 use App\Http\Controllers\Backend\PusatController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;

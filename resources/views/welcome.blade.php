@@ -1393,7 +1393,7 @@
                 <h3 class="footer__title">Kontak</h3>
 
                 <ul class="footer__data">
-                    <li class="footer__information">+1 234 567 890</li>
+                    <li class="footer__information">+62 852 3626 3549</li>
 
                     <div class="footer__social">
                         <a href="https://www.facebook.com/" class="footer__social-link">

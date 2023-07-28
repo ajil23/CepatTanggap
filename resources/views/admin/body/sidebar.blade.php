@@ -26,7 +26,7 @@
 <li class="{{'ambulance/view' == request()->path() ? 'nav-item active' : 'nav-item'}}">
     <a class="nav-link collapsed" href="{{route('ambulance.view')}}">
         <i class="fa fa-ambulance"></i>
-        <span>Panggil Ambulance</span></a>
+        <span>Panggil Ambulans</span></a>
 </li>
 
 <!-- Nav Item - Panggil Bantuan Collapse Menu -->
